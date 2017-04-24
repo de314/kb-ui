@@ -1,0 +1,52 @@
+{
+  "name": "kb-ui",
+  "version": "1.0.0",
+  "description": "kb ui",
+  "scripts": {
+    "test": "eslint lib/ spec/ && ./node_modules/karma/bin/karma start karma.conf.js",
+    "watch-test": "./node_modules/karma/bin/karma start karma.conf.js --auto-watch --no-single-run",
+    "build": "webpack -p",
+    "rename-css-bower-dependencies": "find bower_components -name '*.css' | sed -e 'p;s/.css$/.scss/' | xargs -n2 mv",
+    "start": "webpack-dev-server --inline --hot",
+    "postinstall": "bower install",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "author": "",
+  "license": "BSD",
+  "keywords": [
+    "react",
+    "reactjs",
+    "react-component"
+  ],
+  "devDependencies": {
+    "@kadira/storybook": "^2.21.0",
+    "babel-core": "~5.8.22",
+    "babel-eslint": "^4.0.10",
+    "babel-loader": "~5.3.2",
+    "css-loader": "~0.16.0",
+    "es5-shim": "~4.1.10",
+    "eslint": "^0.21.1",
+    "eslint-plugin-react": "^2.3.0",
+    "jasmine": "~2.3.2",
+    "jasmine-core": "~2.3.4",
+    "karma": "~0.13.9",
+    "karma-jasmine": "~0.3.6",
+    "karma-phantomjs-launcher": "~0.2.1",
+    "karma-sourcemap-loader": "~0.3.5",
+    "karma-webpack": "~1.7.0",
+    "node-sass": "^4.5.2",
+    "phantomjs": "^2.1.7",
+    "sass-loader": "^6.0.3",
+    "style-loader": "~0.12.3",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.4"
+  },
+  "dependencies": {
+    "babel-runtime": "~5.8.20",
+    "lodash": "^4.17.4",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "recompose": "^0.23.1"
+  }
+}
