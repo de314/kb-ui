@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import Welcome from './Welcome';
 
-import FieldsDemo from './FieldsDemo'
+import AllFieldsDemo from './AllFieldsDemo'
 import SimpleUserFieldsDemo from './SimpleUserFieldsDemo'
 
 storiesOf('Welcome', module)
@@ -10,10 +10,15 @@ storiesOf('Welcome', module)
     <Welcome showApp={linkTo('Button')}/>
   ));
 
-storiesOf('View Fields', module)
+storiesOf('Fields', module)
   .add('all fields', () => (
-    <FieldsDemo />
+    <AllFieldsDemo />
   ))
   .add('simple user fields', () => (
     <SimpleUserFieldsDemo />
+  ));
+
+storiesOf('Views', module)
+  .add('simple user view', () => (
+    <div>Hello, World!</div>
   ));

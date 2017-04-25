@@ -1,9 +1,7 @@
 import React from 'react'
-import field from '../lib/fields/KbField'
+import kb from '../lib/kb-ui'
 
-const kb = {
-  field,
-}
+import FieldsDemo from './FieldsDemo'
 
 const model = {
   id: "asdf-123",
@@ -22,7 +20,7 @@ const fields = [
   kb.field('id'),
   kb.field('name'),
   kb.field('suspended', 'bool'),
-  kb.field('profile.bio', 'html').label('Profile'),
+  kb.field('profile.bio', 'html').label('Bio'),
   kb.field('profile.website').render((val) => (
     <span>
       Click Here: <a href={val.url} target="_blank">{val.text}</a>
@@ -30,14 +28,22 @@ const fields = [
   ))
 ];
 
+const fieldsDef = `const fields = [
+  kb.field('id'),
+  kb.field('name'),
+  kb.field('suspended', 'bool'),
+  kb.field('profile.bio', 'html').label('Bio'),
+  kb.field('profile.website').render((val) => (
+    <span>
+      Click Here: <a href={val.url} target="_blank">{val.text}</a>
+    </span>
+  ))
+];`
+
 const SimpleUserFieldsDemo = ({}) => {
   return (
     <div className="ListViewDemo">
-      {fields.map((field,i) => (
-        <div id={i}>
-          {field._render(model)}
-        </div>
-      ))}
+      <FieldsDemo fields={fields} model={model} fieldsDef={fieldsDef} />
     </div>
   );
 }
