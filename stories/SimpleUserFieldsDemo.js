@@ -30,9 +30,7 @@ const fields = [
   ))
 ];
 
-console.log(fields);
-
-const ListViewDemo = ({}) => {
+const SimpleUserFieldsDemo = ({}) => {
   return (
     <div className="ListViewDemo">
       {fields.map((field,i) => (
@@ -44,4 +42,4 @@ const ListViewDemo = ({}) => {
   );
 }
 
-export default ListViewDemo
+export default SimpleUserFieldsDemo

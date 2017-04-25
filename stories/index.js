@@ -3,17 +3,17 @@ import { storiesOf, action, linkTo } from '@kadira/storybook';
 import Welcome from './Welcome';
 
 import FieldsDemo from './FieldsDemo'
-import ListViewDemo from './ListViewDemo'
+import SimpleUserFieldsDemo from './SimpleUserFieldsDemo'
 
 storiesOf('Welcome', module)
   .add('to Storybook', () => (
     <Welcome showApp={linkTo('Button')}/>
   ));
 
-storiesOf('Views', module)
+storiesOf('View Fields', module)
   .add('all fields', () => (
     <FieldsDemo />
   ))
-  .add('simple user view', () => (
-    <ListViewDemo />
+  .add('simple user fields', () => (
+    <SimpleUserFieldsDemo />
   ));
