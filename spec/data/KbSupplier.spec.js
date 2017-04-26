@@ -73,36 +73,72 @@ describe('KbSupplier', function() {
   });
 
   /* FILTERS */
-  it('should filter by predicate simple', function(done) {
+  it('should filter by =', function(done) {
     const items = [ { age: 10 }, { age: 18 }, { age: 21 }, { age: 30 }, { age: 65 } ],
         mem = suppliers.mem(items);
-    mem.findAll({ filter: (v) => v.age < 18}).then(res => {
+    mem.findAll({ filter: [{ path: 'age', op: '=', value: 21 }]}).then(res => {
+      expect(res.total).toEqual(1);
+      expect(res.items).toEqual([ items[2] ]);
+    }).then(done);
+  });
+  it('should filter by <', function(done) {
+    const items = [ { age: 10 }, { age: 18 }, { age: 21 }, { age: 30 }, { age: 65 } ],
+        mem = suppliers.mem(items);
+    mem.findAll({ filter: [{ path: 'age', op: '<', value: 18 }]}).then(res => {
       expect(res.total).toEqual(1);
       expect(res.items).toEqual([ items[0] ]);
+    }).then(done);
+  });
+  it('should filter by <=', function(done) {
+    const items = [ { age: 10 }, { age: 18 }, { age: 21 }, { age: 30 }, { age: 65 } ],
+        mem = suppliers.mem(items);
+    mem.findAll({ filter: [{ path: 'age', op: '<=', value: 18 }]}).then(res => {
+      expect(res.total).toEqual(2);
+      expect(res.items).toEqual([ items[0], items[1] ]);
+    }).then(done);
+  });
+  it('should filter by >', function(done) {
+    const items = [ { age: 10 }, { age: 18 }, { age: 21 }, { age: 30 }, { age: 65 } ],
+        mem = suppliers.mem(items);
+    mem.findAll({ filter: [{ path: 'age', op: '>', value: 30 }]}).then(res => {
+      expect(res.total).toEqual(1);
+      expect(res.items).toEqual([ items[4] ]);
+    }).then(done);
+  });
+  it('should filter by >=', function(done) {
+    const items = [ { age: 10 }, { age: 18 }, { age: 21 }, { age: 30 }, { age: 65 } ],
+        mem = suppliers.mem(items);
+    mem.findAll({ filter: [{ path: 'age', op: '>=', value: 30 }]}).then(res => {
+      expect(res.total).toEqual(2);
+      expect(res.items).toEqual([ items[3], items[4] ]);
+    }).then(done);
+  });
+  it('should filter by contains 1', function(done) {
+    const items = [ { s: 'abc' }, { s: 'def' }, { s: 'abcdef' } ],
+        mem = suppliers.mem(items);
+    mem.findAll({ filter: [{ path: 's', op: 'contains', value: 'abc' }]}).then(res => {
+      expect(res.total).toEqual(2);
+      expect(res.items).toEqual([ items[0], items[2] ]);
+    }).then(done);
+  });
+  it('should filter by contains 2', function(done) {
+    const items = [ { s: 'abc' }, { s: 'def' }, { s: 'abcdef' } ],
+        mem = suppliers.mem(items);
+    mem.findAll({ filter: [{ path: 's', op: 'contains', value: 'cd' }]}).then(res => {
+      expect(res.total).toEqual(1);
+      expect(res.items).toEqual([ items[2] ]);
     }).then(done);
   });
   it('should filter by predicate complex', function(done) {
     const items = [ { age: 10 }, { age: 18 }, { age: 21 }, { age: 30 }, { age: 65 } ],
         mem = suppliers.mem(items);
-    mem.findAll({ filter: (v) => v.age >= 21 && v.age < 60 }).then(res => {
+    mem.findAll({ filter: [
+      { path: 'age', op: '>=', value: 21 },
+      { path: 'age', op: '<', value: 60 }
+    ] }).then(res => {
       expect(res.total).toEqual(2);
       expect(res.items).toEqual([ items[2], items[3] ]);
     }).then(done);
-  });
-  it('should filter by match', function(done) {
-    const items = [ { age: 10 }, { age: 18 }, { age: 21 }, { age: 30 }, { age: 65 } ],
-        mem = suppliers.mem(items);
-    mem.findAll({ filter: { age: 18 }}).then(res => expect(res.items).toEqual([ items[1] ])).then(done);
-  });
-  it('should filter by property', function(done) {
-    const items = [ { age: 10 }, { age: 18 }, { age: 21 }, { age: 30 }, { age: 65 } ],
-        mem = suppliers.mem(items);
-    mem.findAll({ filter: 'age' }).then(res => expect(res.items).toEqual(items)).then(done);
-  });
-  it('should filter by missing property', function(done) {
-    const items = [ { age: 10 }, { age: 18 }, { age: 21 }, { age: 30 }, { age: 65 } ],
-        mem = suppliers.mem(items);
-    mem.findAll({ filter: 'name' }).then(res => expect(res.items).toEqual([])).then(done);
   });
 
   /* SORTS */
