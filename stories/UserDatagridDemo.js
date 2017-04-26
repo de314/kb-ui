@@ -20,12 +20,12 @@ const supplier = kb.suppliers.mem([
 ]);
 
 const fields = [
-  kb.field('id').label('User ID').raw(true),
-  kb.field('name').raw(true),
-  kb.field('email').raw(true),
+  kb.field('id').label('User ID'),
+  kb.field('name'),
+  kb.field('email'),
   kb.field('suspended').render(val => (
     <span>{ val ? (<span style={{ color: 'red', fontWeight: 'bold' }}>Suspended</span>) : '' }</span>
-  )).raw(true)
+  ))
 ];
 
 const options = {};
