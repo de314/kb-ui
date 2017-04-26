@@ -14,7 +14,9 @@ const supplier = kb.suppliers.mem([
   getUser(1, 'Test User', 'test@test.com', false),
   getUser(2, 'Bad Guy', 'banned@test.com', true),
   getUser(3, 'Just a Guy', 'guy@test.com', false),
-  getUser(4, 'My Friend', 'friend@test.com', false)
+  getUser(4, 'My Friend', 'friend@test.com', false),
+  getUser(5, 'My Friend #2', 'friend2@test.com', false),
+  getUser(6, 'My Friend #3', 'friend3@test.com', false)
 ]);
 
 const fields = [
