@@ -2,10 +2,12 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import Welcome from './Welcome';
 
-import AllFieldsDemo from './AllFieldsDemo'
-import SimpleUserFieldsDemo from './SimpleUserFieldsDemo'
+import AllFieldsDemo from './AllFieldsDemo';
+import SimpleUserFieldsDemo from './SimpleUserFieldsDemo';
 
-import UserDatagridDemo from './UserDatagridDemo'
+import UserDatagridDemo from './UserDatagridDemo';
+
+import SimpleUserFormDemo from './SimpleUserFormDemo';
 
 storiesOf('Welcome', module)
   .add('to Storybook', () => (
@@ -23,4 +25,9 @@ storiesOf('Fields', module)
 storiesOf('Views', module)
   .add('simple user grid', () => (
     <UserDatagridDemo />
+  ));
+
+storiesOf('Forms', module)
+  .add('simple user form', () => (
+    <SimpleUserFormDemo />
   ));

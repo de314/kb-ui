@@ -12,7 +12,7 @@ const FieldsDemo = ({ model, fields, fieldsDef }) => {
   return (
     <div className="FieldsDemo">
       {fields.map((field,i) => (
-        <div id={i}>
+        <div key={i}>
           {field._render(model)}
         </div>
       ))}
