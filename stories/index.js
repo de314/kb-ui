@@ -5,6 +5,8 @@ import Welcome from './Welcome';
 import AllFieldsDemo from './AllFieldsDemo'
 import SimpleUserFieldsDemo from './SimpleUserFieldsDemo'
 
+import UserDatagridDemo from './UserDatagridDemo'
+
 storiesOf('Welcome', module)
   .add('to Storybook', () => (
     <Welcome showApp={linkTo('Button')}/>
@@ -19,6 +21,6 @@ storiesOf('Fields', module)
   ));
 
 storiesOf('Views', module)
-  .add('simple user view', () => (
-    <div>Hello, World!</div>
+  .add('simple user grid', () => (
+    <UserDatagridDemo />
   ));
