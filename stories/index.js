@@ -8,6 +8,7 @@ import SimpleUserFieldsDemo from './SimpleUserFieldsDemo';
 import UserDatagridDemo from './UserDatagridDemo';
 
 import SimpleUserFormDemo from './SimpleUserFormDemo';
+import EmbeddedObjectFormDemo from './EmbeddedObjectFormDemo';
 
 storiesOf('Welcome', module)
   .add('to Storybook', () => (
@@ -30,4 +31,7 @@ storiesOf('Views', module)
 storiesOf('Forms', module)
   .add('simple user form', () => (
     <SimpleUserFormDemo />
+  ))
+  .add('embedded object form', () => (
+    <EmbeddedObjectFormDemo />
   ));

@@ -9,7 +9,12 @@ const fields = [
   kb.field('id').readOnly(true).defaultValue('asdf-1234-qwerty-567890'),
   kb.field('name'),
   kb.field('email'),
-  kb.field('suspened', 'bool')
+  kb.field('suspened', 'bool'),
+  kb.field('profile', 'embeddedObject').fields([
+    kb.field('bio'),
+    kb.field('website.url'),
+    kb.field('website.text')
+  ])
 ];
 
 const fieldsDef = `const fields = [
@@ -30,7 +35,7 @@ const model = {
   }
 };
 
-const SimpleUserFormDemo = () => {
+const EmbeddedObjectFormDemo = () => {
   return (
     <div className="SimpleUserFormDemo">
       <FormDemo fields={fields} fieldsDef={fieldsDef} model={model} />
@@ -39,4 +44,4 @@ const SimpleUserFormDemo = () => {
 };
 
 
-export default SimpleUserFormDemo;
+export default EmbeddedObjectFormDemo;
