@@ -9,6 +9,7 @@ import UserDatagridDemo from './UserDatagridDemo';
 
 import SimpleUserFormDemo from './SimpleUserFormDemo';
 import EmbeddedObjectFormDemo from './EmbeddedObjectFormDemo';
+import EmbeddedListFormDemo from './EmbeddedListFormDemo';
 
 storiesOf('Welcome', module)
   .add('to Storybook', () => (
@@ -34,4 +35,7 @@ storiesOf('Forms', module)
   ))
   .add('embedded object form', () => (
     <EmbeddedObjectFormDemo />
+  ))
+  .add('embedded list form', () => (
+    <EmbeddedListFormDemo />
   ));
