@@ -5,7 +5,7 @@ import { withState, compose } from 'recompose';
 
 import FormDemo from './FormDemo';
 
-const fields = [
+const form = kb.form().fields([
   kb.field('id').readOnly(true).defaultValue('asdf-1234-qwerty-567890'),
   kb.field('name'),
   kb.field('email'),
@@ -15,14 +15,19 @@ const fields = [
     kb.field('website.url'),
     kb.field('website.text')
   ])
-];
+]);
 
-const fieldsDef = `const fields = [
+const formDef = `const form = kb.form().fields([
   kb.field('id').readOnly(true).defaultValue('asdf-1234-qwerty-567890'),
   kb.field('name'),
   kb.field('email'),
-  kb.field('suspened', 'bool')
-];`;
+  kb.field('suspened', 'bool'),
+  kb.field('profile', 'embeddedObject').fields([
+    kb.field('bio'),
+    kb.field('website.url'),
+    kb.field('website.text')
+  ])
+]);`;
 
 const model = {
   email: 'user@test.com',
@@ -38,7 +43,7 @@ const model = {
 const EmbeddedObjectFormDemo = () => {
   return (
     <div className="SimpleUserFormDemo">
-      <FormDemo fields={fields} fieldsDef={fieldsDef} model={model} />
+      <FormDemo form={form} formDef={formDef} model={model} />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import kb from '../lib/kb-ui';
 import { withState, compose } from 'recompose';
 
-import KbForm from '../lib/forms/KbForm';
+import LabeledForm from '../lib/forms/LabeledForm';
 
 const jsonPanelStyle = {
   'float': 'left',
@@ -25,15 +25,15 @@ const codeStyle = {
   overflow: "scroll",
 }
 
-const FormDemo = ({ fields, fieldsDef, model, changeModel, setChangeModel, submitModel, setSubmitModel }) => {
+const FormDemo = ({ form, formDef, model, changeModel, setChangeModel, submitModel, setSubmitModel }) => {
   return (
     <div className="SimpleUserFormDemo">
-      <KbForm fields={fields} onSubmit={setSubmitModel} model={model} onChange={setChangeModel} />
+      {form._render(model, setSubmitModel, setChangeModel)}
       <hr/>
       <div className="config-row">
         <h4>Fields Configurations</h4>
         <div style={codeStyle}>
-          <pre>{fieldsDef}</pre>
+          <pre>{formDef}</pre>
         </div>
       </div>
       <hr/>
@@ -65,8 +65,8 @@ const FormDemo = ({ fields, fieldsDef, model, changeModel, setChangeModel, submi
 }
 
 FormDemo.propTypes = {
-  fields: PropTypes.arrayOf(PropTypes.object).isRequired,
-  fieldsDef: PropTypes.string.isRequired,
+  form: PropTypes.object.isRequired,
+  formDef: PropTypes.string.isRequired,
   model: PropTypes.object.isRequired,
 }
 
