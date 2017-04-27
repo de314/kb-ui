@@ -7,6 +7,7 @@ import SimpleUserFieldsDemo from './SimpleUserFieldsDemo';
 
 import UserDatagridDemo from './UserDatagridDemo';
 import SimpleUserViewDemo from './SimpleUserViewDemo';
+import SuppliedSimpleUserViewDemo from './SuppliedSimpleUserViewDemo'
 
 import SimpleUserFormDemo from './SimpleUserFormDemo';
 import EmbeddedObjectFormDemo from './EmbeddedObjectFormDemo';
@@ -28,7 +29,11 @@ storiesOf('Fields', module)
 storiesOf('Views', module)
   .add('simple user details view', () => (
     <SimpleUserViewDemo />
-  )).add('simple user grid', () => (
+  ))
+  .add('simple user details view (supplied)', () => (
+    <SuppliedSimpleUserViewDemo />
+  ))
+  .add('simple user grid', () => (
     <UserDatagridDemo />
   ));
 

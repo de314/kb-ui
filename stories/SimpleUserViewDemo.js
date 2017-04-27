@@ -1,7 +1,7 @@
 import React from 'react'
 import kb from '../lib/kb-ui'
 
-import FieldsDemo from './FieldsDemo'
+import ViewDemo from './ViewDemo';
 
 const view = kb.view()
     .asDetails()
@@ -53,19 +53,8 @@ const codeStyle = {
 
 const SimpleUserViewDemo = ({}) => {
   return (
-    <div className="ListViewDemo">
-      {view._render(model)}
-      <div>
-        <hr />
-        <h4>Fields Configurations</h4>
-        <div style={codeStyle}>
-          <pre>{viewDef}</pre>
-        </div>
-        <h4>Model</h4>
-        <div style={codeStyle}>
-          <pre>{JSON.stringify(model, null, 2)}</pre>
-        </div>
-      </div>
+    <div className="SimpleUserDemo">
+      <ViewDemo model={model} view={view} viewDef={viewDef} />
     </div>
   );
 }
