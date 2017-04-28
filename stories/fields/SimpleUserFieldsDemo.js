@@ -1,5 +1,5 @@
 import React from 'react'
-import kb from '../lib/kb-ui'
+import kb from '../../lib/kb-ui'
 
 import FieldsDemo from './FieldsDemo'
 

@@ -2,8 +2,10 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import Welcome from './Welcome';
 
-import AllFieldsDemo from './AllFieldsDemo';
-import SimpleUserFieldsDemo from './SimpleUserFieldsDemo';
+import AllFieldsDemo from './fields/AllFieldsDemo';
+import SimpleUserFieldsDemo from './fields/SimpleUserFieldsDemo';
+import CustomFieldDemo from './fields/CustomFieldDemo';
+import CustomThumbnailFieldDemo from './fields/CustomThumbnailFieldDemo'
 
 import UserDatagridDemo from './UserDatagridDemo';
 import SimpleUserViewDemo from './SimpleUserViewDemo';
@@ -27,6 +29,12 @@ storiesOf('Fields', module)
   ))
   .add('simple user fields', () => (
     <SimpleUserFieldsDemo />
+  ))
+  .add('custom avatar field', () => (
+    <CustomFieldDemo />
+  ))
+  .add('custom thumbnail field', () => (
+    <CustomThumbnailFieldDemo />
   ));
 
 storiesOf('Views', module)
