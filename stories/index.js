@@ -12,6 +12,7 @@ import SuppliedSimpleUserViewDemo from './SuppliedSimpleUserViewDemo'
 import SimpleUserFormDemo from './SimpleUserFormDemo';
 import EmbeddedObjectFormDemo from './EmbeddedObjectFormDemo';
 import EmbeddedListFormDemo from './EmbeddedListFormDemo';
+import SuppliedSimpleUserFormDemo from './SuppliedSimpleUserFormDemo';
 
 storiesOf('Welcome', module)
   .add('to Storybook', () => (
@@ -46,4 +47,7 @@ storiesOf('Forms', module)
   ))
   .add('embedded list form', () => (
     <EmbeddedListFormDemo />
+  ))
+  .add('supplied form', () => (
+    <SuppliedSimpleUserFormDemo />
   ));
