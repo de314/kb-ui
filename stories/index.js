@@ -14,6 +14,8 @@ import EmbeddedObjectFormDemo from './EmbeddedObjectFormDemo';
 import EmbeddedListFormDemo from './EmbeddedListFormDemo';
 import SuppliedSimpleUserFormDemo from './SuppliedSimpleUserFormDemo';
 
+import CollectionDemo from './CollectionDemo';
+
 storiesOf('Welcome', module)
   .add('to Storybook', () => (
     <Welcome showApp={linkTo('Button')}/>
@@ -50,4 +52,9 @@ storiesOf('Forms', module)
   ))
   .add('supplied form', () => (
     <SuppliedSimpleUserFormDemo />
+  ));
+
+storiesOf('Collections')
+  .add('simple user collection', () => (
+    <CollectionDemo />
   ));

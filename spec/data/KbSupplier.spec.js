@@ -157,4 +157,30 @@ describe('KbSupplier', function() {
         mem = suppliers.mem(items);
     mem.findAll({ sort: [ 's', '-n' ] }).then(res => expect(res.items).toEqual([ items[1], items[0], items[3], items[2], items[4] ])).then(done);
   });
+
+  /* SAVE */
+  it('should save an initial value', function(done) {
+    const mem = suppliers.mem(),
+        user = { id: 1, name: 'david' };
+    Promise.all([
+      mem.save(user).then(res => expect(res).toEqual(user)),
+      mem.findAll().then(res => expect(res.total).toEqual(1))
+    ]).then(done);
+  });
+  it('should save a new value', function(done) {
+    const mem = suppliers.mem([ { id: 0, name: 'david' }]),
+        user = { id: 1, name: 'david' };
+    Promise.all([
+      mem.save(user).then(res => expect(res).toEqual(user)),
+      mem.findAll().then(res => expect(res.total).toEqual(2))
+    ]).then(done);
+  });
+  it('should update a value', function(done) {
+    const mem = suppliers.mem([ { id: 0, name: 'david' }]),
+        user = { id: 0, name: 'not david' };
+    Promise.all([
+      mem.save(user).then(res => expect(res).toEqual(user)),
+      mem.findAll().then(res => expect(res.total).toEqual(1))
+    ]).then(done);
+  });
 });
