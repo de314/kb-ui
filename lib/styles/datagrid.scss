@@ -1,0 +1,44 @@
+.Datagrid {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  table, th, td {
+    padding: 10px;
+    border: 1px solid #333;
+  }
+
+  .datagrid-header-row {
+    margin-bottom: 10px;
+  }
+
+  .datagrid-header-label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .no-tags {
+    font-style: italic;
+  }
+
+  .RemoveableTag {
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #eee;
+    border-radius: 15px;
+  }
+
+  .cta-row {
+    text-align: right;
+  }
+
+  .pagination-row {
+    text-align: center;
+    margin: 20px;
+
+    button {
+      margin: 0 10px;
+    }
+  }
+}

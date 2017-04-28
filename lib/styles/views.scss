@@ -1,0 +1,30 @@
+.ValueField, .ValueInput {
+  display: inline-block;
+  margin-top: 20px;
+  padding-left: 10px;
+}
+
+.ValueField {
+  .field-value {
+    display: inline-block;
+  }
+
+  .field-label {
+    display: inline-block;
+    width: 175px;
+    font-weight: bold;
+    font-style: italic;
+    margin-right: 10px;
+  }
+
+  .bool-value {
+    font-weight: bold;
+
+    &.bool-value-true {
+      color: green;
+    }
+    &.bool-value-false {
+      color: red;
+    }
+  }
+}
