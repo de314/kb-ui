@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash';
-import kb from '../../lib/kb-ui'
+import kb from '../../src/kb-ui'
 
-import KbField from '../../lib/fields/KbField';
+import KbField from '../../src/fields/KbField';
 
 import FieldsDemo from './FieldsDemo'
 

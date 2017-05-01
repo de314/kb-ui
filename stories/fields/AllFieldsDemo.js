@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import kb from '../../lib/kb-ui'
+import kb from '../../src/kb-ui'
 
 import FieldsDemo from './FieldsDemo'
 
