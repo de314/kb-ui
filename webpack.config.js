@@ -7,7 +7,7 @@ module.exports = {
   entry: './lib/index.js',
 
   output: {
-    path: path.join(__dirname),
+    path: path.join(__dirname, 'dist'),
     filename: 'kb-ui.js',
     libraryTarget: 'umd',
     library: 'KbUi'
