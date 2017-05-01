@@ -47,12 +47,12 @@ KbCollection.prototype.details = function(view) {
   return this;
 };
 
-KbCollection.prototype.renderCreate = function(onSubmit, onChange) {
-  return this.options.create._render(undefined, onSubmit, onChange);
+KbCollection.prototype.renderCreate = function(onSubmit, onCancel, onChange) {
+  return this.options.create._render(undefined, onSubmit, onCancel, onChange);
 };
 
-KbCollection.prototype.renderEdit = function(id, onSubmit, onChange) {
-  return this.options.edit._render(id, onSubmit, onChange);
+KbCollection.prototype.renderEdit = function(id, onSubmit, onCancel, onChange) {
+  return this.options.edit._render(id, onSubmit, onCancel, onChange);
 };
 
 KbCollection.prototype.renderList = function() {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { mapProps, withState, withHandlers, lifecycle, compose } from 'recompose';
 
-const LabeledForm = ({ fields, formModel, onSubmit, onChange }) => {
+const LabeledForm = ({ fields, formModel, onSubmit, onChange, onCancel }) => {
   return (
     <div className="LabeledForm">
       <form onSubmit={e => { e.preventDefault(); onSubmit(); }}>
@@ -14,7 +14,7 @@ const LabeledForm = ({ fields, formModel, onSubmit, onChange }) => {
         ))}
         <div className="cta-row">
           <button className="btn btn-primary">Submit</button>
-          <button className="btn" onClick={e=>e.preventDefault()}>Cancel</button>
+          <button className="btn" onClick={e=>{e.preventDefault(); onCancel(); }}>Cancel</button>
         </div>
       </form>
     </div>
@@ -25,7 +25,8 @@ LabeledForm.propTypes = {
   fields: PropTypes.arrayOf(PropTypes.object).isRequired,
   formModel: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  onCancel: PropTypes.func
 };
 
 function initFormModel(props) {
@@ -68,6 +69,12 @@ export default compose(
     onSubmit: props => () => {
       const { formModel, onSubmit } = props;
       onSubmit(_.cloneDeep(formModel));
+    },
+    onCancel: props => () => {
+      const { onCancel, formModel } = props;
+      if (_.isFunction(onCancel)) {
+        onCancel(formModel);
+      }
     }
   })
 )(LabeledForm);

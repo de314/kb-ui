@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import kb from '../lib/kb-ui';
+import kb from '../src/kb-ui';
 
 const codeStyle = {
   width: "600px",

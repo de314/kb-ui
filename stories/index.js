@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 
-import '../lib/styles/default.scss';
+import '../src/styles/default.scss';
 
 import Welcome from './Welcome';
 

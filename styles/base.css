@@ -1,0 +1,72 @@
+/* ======== */
+/* DATAGRID */
+/* ======== */
+
+.Datagrid .datagrid-header-row {
+  margin-bottom: 10px;
+}
+
+.Datagrid .datagrid-header-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.Datagrid .no-tags {
+  font-style: italic;
+}
+
+.Datagrid .RemoveableTag {
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #eee;
+  border-radius: 15px;
+}
+
+.Datagrid .cta-row {
+  text-align: right;
+}
+
+.Datagrid .cta-row button {
+  margin: 0 10px;
+}
+
+.Datagrid .pagination-row {
+  text-align: center;
+  margin: 20px;
+}
+
+.Datagrid .pagination-row button {
+  margin: 0 10px;
+}
+
+
+/* ============ */
+/* LABELED VIEW */
+/* ============ */
+
+.ValueField, .ValueInput {
+  display: inline-block;
+  margin-top: 20px;
+  padding-left: 10px;
+}
+
+.ValueField .field-value {
+  display: inline-block;
+}
+
+.ValueField .field-label {
+  display: inline-block;
+  width: 175px;
+  font-weight: bold;
+  font-style: italic;
+  margin-right: 10px;
+}
+
+
+/* ============ */
+/* LABELED FORM */
+/* ============ */
+
+.LabeledForm .cta-row button {
+  margin: 0 10px;
+}

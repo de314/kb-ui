@@ -1,5 +1,5 @@
 import React from 'react'
-import kb from '../lib/kb-ui'
+import kb from '../src/kb-ui'
 import { withState, compose } from 'recompose';
 
 import ViewDemo from './ViewDemo';

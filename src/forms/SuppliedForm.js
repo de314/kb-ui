@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { withState, withHandlers, lifecycle, compose } from 'recompose';
 
-const SuppliedView = ({ component, loading, onChange, onSubmit, options, suppliedModel }) => {
+const SuppliedView = ({ component, loading, onChange, onCancel, onSubmit, options, suppliedModel }) => {
   if (loading) {
     return (<div className="loading">Loading...</div>);
   }
@@ -14,7 +14,7 @@ const SuppliedView = ({ component, loading, onChange, onSubmit, options, supplie
   const RenderComponent = component;
   return (
     <div className="SuppliedView">
-      <RenderComponent model={content} options={options} onChange={onChange} onSubmit={onSubmit} />
+      <RenderComponent model={content} options={options} onCancel={onCancel} onChange={onChange} onSubmit={onSubmit} />
     </div>
   );
 };
@@ -22,6 +22,7 @@ const SuppliedView = ({ component, loading, onChange, onSubmit, options, supplie
 SuppliedView.propTypes = {
   component: PropTypes.node.isRequired,
   loading: PropTypes.bool.isRequired,
+  onCancel: PropTypes.func,
   onChange: PropTypes.func,
   onSubmit: PropTypes.func.isRequired,
   options: PropTypes.object.isRequired,

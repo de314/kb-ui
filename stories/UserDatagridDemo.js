@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import kb from '../lib/kb-ui';
+import kb from '../src/kb-ui';
 
-import Datagrid from '../lib/views/Datagrid'
+import Datagrid from '../src/views/Datagrid'
 
 function getUser(id, name, email, suspended) {
   return ({ id, name, email, suspended })
@@ -58,7 +58,7 @@ const codeStyle = {
   overflow: "scroll",
 }
 
-const UserDatagridDemo = ({}) => {
+const UserDatagridDemo = () => {
   return (
     <div className="DatagridDemo">
       {view._render()}

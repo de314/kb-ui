@@ -43,8 +43,8 @@ const Datagrid = ({
         ))}
       </div>
       <div className="datagrid-header-row cta-row">
-        <button className="btn" onClick={() => setShowFilters(!showFilters)}>{showFilters ? 'Hide' : 'Show'} Filters</button>
-        <button className="btn" onClick={() => refresh()}>Refresh</button>
+        <button className="btn btn-default" onClick={() => setShowFilters(!showFilters)}>{showFilters ? 'Hide' : 'Show'} Filters</button>
+        <button className="btn btn-default" onClick={() => refresh()}>Refresh</button>
       </div>
       <div className="table-row">
         <table className="table table-striped table-hover">

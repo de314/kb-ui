@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 const ValueInput = ({ valueType, options = {}, children }) => {
-  const { label, className = `ValueInput ${_.capitalize(valueType)}Field`, raw = false } = options;
+  const { label, className = `ValueInput ${_.capitalize(valueType)}Field form-group`, raw = false } = options;
   return (
-    <span className={className}>
-      { raw || _.isUndefined(label) ? '' : (<span className={`input-label ${valueType}-label`}>{label}</span>) }
+    <div className={className}>
+      { raw || _.isUndefined(label) ? '' : (<label className={`input-label ${valueType}-label`}>{label}</label>) }
       <span className="input-value">{ children }</span>
-    </span>
+    </div>
   );
 };
 

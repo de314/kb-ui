@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import kb from '../lib/kb-ui';
+import kb from '../src/kb-ui';
 import { withState, compose } from 'recompose';
 
-import LabeledForm from '../lib/forms/LabeledForm';
+import LabeledForm from '../src/forms/LabeledForm';
 
 const jsonPanelStyle = {
   'float': 'left',
@@ -26,9 +26,10 @@ const codeStyle = {
 }
 
 const FormDemo = ({ form, formDef, model, changeModel, setChangeModel, submitModel, setSubmitModel }) => {
+  const onCancel = (currVal) => console.log({currVal})
   return (
     <div className="SimpleUserFormDemo">
-      {form._render(model, setSubmitModel, setChangeModel)}
+      {form._render(model, setSubmitModel, onCancel, setChangeModel)}
       <hr/>
       <div className="config-row">
         <h4>Fields Configurations</h4>

@@ -26,7 +26,7 @@ KbForm.prototype.set = function(fieldName, value) {
   return this;
 };
 
-KbForm.prototype._render = function(modelOrId, onSubmit, onChange) {
+KbForm.prototype._render = function(modelOrId, onSubmit, onCancel, onChange) {
   const RenderComponent = _.defaultTo(this.options.render, this.options.component),
       supplier = this.options.supplier;
   let model = _.isPlainObject(modelOrId) ? modelOrId : undefined,
@@ -34,18 +34,18 @@ KbForm.prototype._render = function(modelOrId, onSubmit, onChange) {
   if (!_.isUndefined(supplier)) {
     if (!_.isUndefined(onSubmit)) {
       handleSubmit = (val) => {
-        onSubmit(val);
         supplier.save(val);
+        onSubmit(val);
       };
     } else {
       handleSubmit = supplier.save.bind(supplier);
     }
   }
   if (_.isUndefined(model) && _.isString(modelOrId) && !_.isUndefined(supplier)) {
-    return (<SuppliedForm component={RenderComponent} model={modelOrId} options={this.options} onSubmit={handleSubmit} onChange={onChange} />);
+    return (<SuppliedForm component={RenderComponent} model={modelOrId} options={this.options} onSubmit={handleSubmit} onCancel={onCancel} onChange={onChange} />);
   }
   model = _.defaultTo(model, this.options.defaultValue);
-  return (<RenderComponent options={this.options} model={model} onSubmit={handleSubmit} onChange={onChange} />);
+  return (<RenderComponent options={this.options} model={model} onSubmit={handleSubmit} onCancel={onCancel} onChange={onChange} />);
 };
 
 export default (component) => new KbForm(component);
